@@ -1,16 +1,22 @@
 
 
+import { Api } from '../../util/api';
+
+const api = new Api();
+
+
 class Home {
     constructor(){
         
     }
     getBannerData(id,callBack) {
-        wx.request({
-            url:'https://cnodejs.org/api/v1/topics',
-            method:'GET',
-            success:function(res) {
-                callBack(res)
-            }
+       
+        api.request({
+            url:'/api/v1/topics',
+            type:'GET',
+            data:{},
+            callBack
+
         })
     }
 }
