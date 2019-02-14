@@ -4,12 +4,12 @@ class Home {
     constructor(){
         
     }
-    getBannerData(id) {
+    getBannerData(id,callBack) {
         wx.request({
-            url:'http://localhost:7001/getBanner'+id,
+            url:'https://cnodejs.org/api/v1/topics',
             method:'GET',
             success:function(res) {
-                return res;
+                callBack(res)
             }
         })
     }

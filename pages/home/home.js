@@ -21,10 +21,18 @@ Page({
   loadData:function(){
     let id = 1;
 
-    let data = home.getBannerData(id);
+    let data =  home.getBannerData(id, (res) => {
+      console.log(res);
+      
+    });
+   
 
-  }
 
+  },
+
+
+
+ 
 
   
 })
