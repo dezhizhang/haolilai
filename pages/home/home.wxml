@@ -1,6 +1,7 @@
  <import src="../template/product/products.wxml"/>
 
-<view class="container home-container" hidden="{{!loadingHidden}}">
+<view class="container home-container">
+
     <swiper indicator-dots="true" autoplay="true" class="swiper">
         <block wx:for="{{bannerArr}}" wx:key="{{index}}">
             <swiper-item class="banner-item" bindtap="onProductsItemTap" data-id="{{item.key_word}}">
@@ -8,6 +9,7 @@
             </swiper-item>
         </block>
     </swiper>
+
     <view class="home-main">
         <!--主题精选-->
         <view class="home-main-theme">
@@ -23,17 +25,12 @@
                 </block>
             </view>
         </view>
+
         <!--单品首发-->
         <view class="home-main-products">
             <view class="home-main-header">最近新品</view>
-            <template is="products" data="{{productsArr:productsArr}}"/>
+            <template is="products"></template>
         </view>
     </view>
 </view>
 
-<!--
-<loading hidden="{{loadingHidden}}">
-    加载中...
-</loading>
-
--->
