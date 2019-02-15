@@ -22,10 +22,15 @@ Page({
   loadData:function(){
     let id = 1;
 
-    let data =  home.getBannerData(id, (res) => {
+    home.getBannerData(id, (res) => {
       console.log(res);
       
     });
+
+    home.getProductData(id,(res) => {
+      console.log(res);
+      
+    })
   
   },
 

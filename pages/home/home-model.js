@@ -20,6 +20,17 @@ class Home {
         api.request(params);
 
     }
+    getProductData(id,callback) {
+        let params = {
+            url:"/api/v1/topics",
+            type:'GET',
+            callback,
+            data:{}
+        }
+       
+        api.request(params);
+    }
+    
 }
 
 
