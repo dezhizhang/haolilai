@@ -2,18 +2,29 @@
 <view>
 
     <swiper indicator-dots="true" autoplay="true" class="swipper">
-        <block wx:for="{{dataArray}}" wx:key="{{index}}">
+        <block wx:for="{{bannerArr}}" wx:key="{{index}}">
             <swiper-item class="swipper-item" item-id="">
-                <image mode="aspectFill" class="swipper-image" src="{{item.image}}" />
+                <image mode="aspectFill" class="swipper-image" src="{{item.bannerImage}}"/>
             </swiper-item>
         </block>
     </swiper>
 
     <view class="home-main">
-        <view class="home-them">
-          <view class="home-header"></view>
-          <view class="home-image"></view>
+
+        <view class="home-theme">
+          <view class="home-header">精选主题</view>
+          <view class="home-image">
+             <block wx:for="{{themeArr}}" wx:key="{{index}}">
+               <view wx:if="{{index == 2}}" class="theme-item big">
+                  <image src="{{item.themImage}}"/>
+               </view>
+               <view wx:else class="them-item">
+                  <image src="{{item.themImage}}"/>
+               </view>
+             </block>
+          </view>
         </view>
+
         <view class="home-product"></view>
     </view>
 </view>
