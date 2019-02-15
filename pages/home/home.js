@@ -10,7 +10,8 @@ Page({
  //页面初始数据
   data: {
     bannerArr:['1','2','3'],
-    themeArr:['1','2','9']
+    themeArr:['1','2','9'],
+    productArr:[]
   },
 
   //页面初始化时
@@ -29,7 +30,8 @@ Page({
 
     home.getProductData(id,(res) => {
       console.log(res);
-      
+     
+
     })
   
   },
