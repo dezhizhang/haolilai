@@ -18,7 +18,7 @@ class Api {
             },
             success:function(res) {
 
-              params.callBack &&  params.callBack(res.data)
+              params.callback &&  params.callback(res.data)
             
             },
             fail:function(err) {

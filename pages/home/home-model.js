@@ -9,16 +9,16 @@ class Home {
     constructor(){
         
     }
-    getBannerData(id,callBack) {
+    getBannerData(id,callback) {
         let params = {
             url:"/api/v1/topics",
             type:'GET',
-            callBack,
+            callback,
             data:{}
         }
        
         api.request(params);
-        
+
     }
 }
 

@@ -1,5 +1,6 @@
 <!--pages/home/home.wxml-->
 <view>
+
     <swiper indicator-dots="true" autoplay="true" class="swipper">
         <block wx:for="{{dataArray}}" wx:key="{{index}}">
             <swiper-item class="swipper-item" item-id="">
@@ -7,5 +8,12 @@
             </swiper-item>
         </block>
     </swiper>
-    <view></view>
+
+    <view class="home-main">
+        <view class="home-them">
+          <view class="home-header"></view>
+          <view class="home-image"></view>
+        </view>
+        <view class="home-product"></view>
+    </view>
 </view>
