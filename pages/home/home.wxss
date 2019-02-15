@@ -1,0 +1,18 @@
+.swipper{
+    height:400rpx;
+    width:100%;
+    background:red;
+    
+}
+
+.swipper-item{
+    height:100%;
+    width:100%;
+
+}
+
+.swipper-image{
+    height:100%;
+    width:100%;
+
+}
