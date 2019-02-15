@@ -10,14 +10,15 @@ class Home {
         
     }
     getBannerData(id,callBack) {
-       
-        api.request({
-            url:'/api/v1/topics',
+        let params = {
+            url:"/api/v1/topics",
             type:'GET',
-            data:{},
-            callBack
-
-        })
+            callBack,
+            data:{}
+        }
+       
+        api.request(params);
+        
     }
 }
 
