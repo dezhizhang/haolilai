@@ -11,7 +11,7 @@ class Home {
     }
     getBannerData(id,callback) {
         let params = {
-            url:"/api/v1/topics",
+            url:"/api/bannerImage",
             type:'GET',
             callback,
             data:{}
@@ -22,7 +22,7 @@ class Home {
     }
     getProductData(id,callback) {
         let params = {
-            url:"/api/v1/topics",
+            url:"/api/themeImage",
             type:'GET',
             callback,
             data:{}

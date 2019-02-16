@@ -9,8 +9,8 @@ Page({
 
  //页面初始数据
   data: {
-    bannerArr:['1','2','3'],
-    themeArr:['1','2','9'],
+    bannerArr:[],
+    themeArr:[],
     productArr:[]
   },
 
@@ -24,14 +24,23 @@ Page({
     let id = 1;
 
     home.getBannerData(id, (res) => {
-      console.log(res);
+      if(res.code==200 && res.success==true) {
+        this.setData({
+          bannerArr:res.data
+        })
+      }
       
     });
 
     home.getProductData(id,(res) => {
-      console.log(res);
-     
-
+      if(res.code ==200 && res.success==true) {
+        console.log(res);
+        
+        this.setData({
+          themeArr:res.data
+        })
+      }
+    
     })
   
   },

@@ -7,7 +7,7 @@
             </view> 
             <view class="products-item-bottom">
                 <text class="name">{{item.name}}</text>
-                <text class="price">{{item.price}}</text>
+                <view class="price">{{item.price}}</view>
             </view>
         </block>
     </view>

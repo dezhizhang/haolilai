@@ -6,7 +6,6 @@
 .swiper{
   height: 400rpx;
   width: 100%;
-  background:pink;
 
 }
 .swiper-box{
@@ -15,7 +14,7 @@
 .banner-item{
   height: 100%;
   width: 100%;
-  background:yellow;
+  
 }
 .banner-item image{
   height: 100%;
