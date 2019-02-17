@@ -55,15 +55,25 @@ Page({
 
   },
 
+  //轮播图跨转
   onProductsItemTap:function(ev){
-    console.log(ev);
-    
+    let id = ev.currentTarget.dataset.id;
+
     wx.navigateTo({
-      url:"../product/product",
+      url:"../product/product?id="+id,
 
     })
 
-    
+  },
+  onThemesItemTap:function(ev) {
+    let name = ev.currentTarget.dataset.name;
+    let id = ev.currentTarget.dataset.id;
+
+    wx.navigateTo({
+      url:'../theme/theme?id=' + id + '&name=' + name 
+    })
+
+  
   }
 
 
