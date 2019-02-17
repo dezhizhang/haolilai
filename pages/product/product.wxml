@@ -10,7 +10,15 @@
                 <image src=""></image>
         </view>
         <view class="cart-box">
-            <view class="product-counts"></view>
+            <view class="product-counts">
+                <picker range="{{array}}" bindchange="bindPickerChange" value="{{index}}">
+                    <view>
+                        <text class="counts-tips">数量</text>
+                        <text class="counts-data">{{array[index]}}</text>
+                        <image class="counts-icon" src="../../imgs/icon/arrow@down.png"></image>
+                    </view>
+                </picker>
+            </view>
             <view class="product-border"></view>
             <view class="add-cart-btn"></view>
         </view>
