@@ -22,7 +22,6 @@
   text-align:center;
 
 }
-
 .products-item-bottom{
   text-align: center;
   margin-bottom:20rpx;
@@ -32,15 +31,13 @@
   font-size: 28rpx;
   position:absolute;
   bottom:40rpx;
-  color:#999;
+  color:#ccc;
+  
 }
 .products-item-bottom .price{
   font-size: 24rpx;
   position:absolute;
   bottom:10rpx;
   left:48%;
-  color:#999;
-
-
-
+  color:#ccc;
 }
