@@ -28,7 +28,6 @@ Page({
 
   //加载数据
   loadData:function(id) {
-  
     theme.getProductData(id,(res) => {
        if(res.code == 200 && res.success == true) {
           this.setData({
@@ -38,9 +37,14 @@ Page({
 
     });
 
-
-
   },
+  onReady:function() {
+    wx.setNavigationBarTitle({
+      title: '城市主题'
+    })
+  }
+
+
 
 
   
