@@ -39,6 +39,10 @@
                 <view class="tabs-item {{currentTabsIndex==index ? 'selected':''}}" bindtap="onBindTapTabItem" data-index="{{index}}">{{item.name}}</view>
             </block>
         </view>
-        <view class="product-detail-box"></view>
+        <view class="product-detail-box">
+           <view hidden="{{currentTabsIndex!==0 }}">1111</view>
+           <view hidden="{{currentTabsIndex!==1}}">2222</view>
+           <view hidden="{{currentTabsIndex!==2}}">3333</view>
+        </view>
     </view>
 </view>
