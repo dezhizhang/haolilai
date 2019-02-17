@@ -22,8 +22,8 @@ Page({
   },
   loadData:function(){
     let id = 1;
-
-    home.getBannerData(id, (res) => {
+    //轮播图
+    home.getBannerData((res) => {
       if(res.code==200 && res.success==true) {
         this.setData({
           bannerArr:res.data
@@ -31,17 +31,29 @@ Page({
       }
       
     });
-
-    home.getProductData(id,(res) => {
+    //主题
+    home.getThemeData((res) => {
       if(res.code ==200 && res.success==true) {
-        console.log(res);
         
         this.setData({
           themeArr:res.data
         })
       }
     
-    })
+    });
+
+    //产品
+    home.getProductData((res) => {
+      if(res.code == 200 && res.success==true) {
+        this.setData({
+          productArr:res.data
+        })
+      }
+     
+
+    });
+    
+
   
   },
 

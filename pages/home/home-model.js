@@ -9,7 +9,8 @@ class Home {
     constructor(){
         
     }
-    getBannerData(id,callback) {
+    //轮播图
+    getBannerData(callback) {
         let params = {
             url:"/api/bannerImage",
             type:'GET',
@@ -20,7 +21,8 @@ class Home {
         api.request(params);
 
     }
-    getProductData(id,callback) {
+    //主题
+    getThemeData(callback) {
         let params = {
             url:"/api/themeImage",
             type:'GET',
@@ -29,6 +31,18 @@ class Home {
         }
        
         api.request(params);
+    }
+    //产品
+    getProductData(callback) {
+        let params = {
+            url:'/api/productImage',
+            type:'GET',
+            callback,
+            data:{}
+        }
+
+        api.request(params);
+
     }
     
 }

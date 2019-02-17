@@ -3,7 +3,7 @@
     <view class="products-box">
         <block wx:for="{{productArr}}" wx:key="{{index}}">
             <view class="products-item">
-                <image class="products-image" src="{{item.productImage}}"/>
+                <image class="products-image" src="http://localhost:7001{{item.product_url}}"/>
             </view> 
             <view class="products-item-bottom">
                 <text class="name">{{item.name}}</text>
