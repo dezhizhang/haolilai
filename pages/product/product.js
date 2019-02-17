@@ -10,6 +10,8 @@ Page({
   data: {
     array: [1, 2, 3, 4,5,6,7,8,9,10],
     index:0,
+    tabArr:[{name:"商品详情"},{name:"产品参数"},{name:'售后保障'}],
+    currentTabsIndex:0,
   },
   // 生命周期函数--监听页面加载
   onLoad: function (options) {
@@ -34,6 +36,15 @@ Page({
     this.setData({
       index:ev.detail.value
     })
+  },
+
+  //选项卡切换
+  onBindTapTabItem:function(ev){
+    let index = ev.currentTarget.dataset.index;
+    this.setData({
+      currentTabsIndex:index
+    })
+
   }
 
  
