@@ -52,10 +52,13 @@ Page({
      
 
     });
-    
 
-  
   },
+
+  onProductsItemTap:function(){
+    console.log('1');
+    
+  }
 
 
 
