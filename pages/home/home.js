@@ -55,8 +55,14 @@ Page({
 
   },
 
-  onProductsItemTap:function(){
-    console.log('1');
+  onProductsItemTap:function(ev){
+    console.log(ev);
+    
+    wx.navigateTo({
+      url:"../product/product",
+
+    })
+
     
   }
 
