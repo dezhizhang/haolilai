@@ -11,7 +11,7 @@
         </view>
         <view class="cart-box">
             <view class="product-counts">
-                <picker range="{{array}}" bindchange="bindPickerChange" value="{{index}}">
+                <picker class="{{product.stock==0 ? 'disable':''}}" range="{{array}}" bindchange="bindPickerChange" value="{{index}}">
                     <view>
                         <text class="counts-tips">数量</text>
                         <text class="counts-data">{{array[index]}}</text>
@@ -19,7 +19,7 @@
                     </view>
                 </picker>
             </view>
-            <view class="product-border"></view>
+            <view class="middle-border"></view>
             <view class="add-cart-btn"></view>
         </view>
        <view class="basic-info-box"></view>
