@@ -30,7 +30,6 @@ Page({
   loadData:function(id) {
   
     theme.getProductData(id,(res) => {
-       
        if(res.code == 200 && res.success == true) {
           this.setData({
             themeArr:res.data
