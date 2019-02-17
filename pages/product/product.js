@@ -21,8 +21,11 @@ Page({
   },
 
   loadData:function(id) {
-    product.getDetailInfo(id);
-    
+    product.getDetailInfo(id,(res) => {
+      console.log(res);
+      
+    });
+
   }
 
  
