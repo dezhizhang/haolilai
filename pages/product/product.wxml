@@ -20,7 +20,10 @@
                 </picker>
             </view>
             <view class="middle-border"></view>
-            <view class="add-cart-btn"></view>
+            <view class="add-cart-btn {{product.stock==0 ? 'disabled':''}}">
+               <text>加入购物车</text>
+               <image class="cart-icon" src="../../imgs/icon/cart.png"></image>
+            </view>
         </view>
        <view class="basic-info-box"></view>
     </view>
