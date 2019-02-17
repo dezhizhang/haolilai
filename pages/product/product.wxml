@@ -40,8 +40,17 @@
             </block>
         </view>
         <view class="product-detail-box">
-           <view hidden="{{currentTabsIndex!==0 }}">1111</view>
-           <view hidden="{{currentTabsIndex!==1}}">2222</view>
+           <view class="product-detail-imgs" hidden="{{currentTabsIndex!==0 }}">
+                <block wx:for="{{products.items}}" wx:key="{{index}}">
+                    <image src="{{item.product_url}}" mode="aspectFill"></image>
+                </block>
+           </view>
+           <view class="product-detail-properties" hidden="{{currentTabsIndex!==1}}">
+                <view>商品名称:{{product.name}}</view>
+                <view></view>
+                <view></view>
+                <view></view>
+           </view>
            <view hidden="{{currentTabsIndex!==2}}">3333</view>
         </view>
     </view>
