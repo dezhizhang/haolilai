@@ -35,6 +35,9 @@
       "iconPath":"imgs/toolbar/my.png",
       "selectedIconPath":"imgs/toolbar/my@selected.png"
     }],
-    "borderStyle":"white"
+    "borderStyle":"white",
+    "selectedColor":"#AB956D",
+    "color":"#989898",
+    "backgroundColor":"#f5f5f5"
   }
 }
