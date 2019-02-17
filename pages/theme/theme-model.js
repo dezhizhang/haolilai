@@ -8,9 +8,9 @@ class Theme {
 
     }
     //获取主题产品数据
-    getProductData(id,name,callback) {
+    getProductData(id,callback) {
         let params = {
-            url:"/api/themeDetail?id"+ id + '&name' + name,
+            url:"/api/themeDetail?id="+ id,
             type:'GET',
             callback,
             data:{}

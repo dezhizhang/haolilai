@@ -4,6 +4,7 @@
 
 .theme-header{
     height:400rpx;
+    width:100%;
     margin-bottom:30rpx;
     position:relative;
     background:yellow;

@@ -34,7 +34,8 @@ Page({
     //主题
     home.getThemeData((res) => {
       if(res.code ==200 && res.success==true) {
-        
+
+
         this.setData({
           themeArr:res.data
         })

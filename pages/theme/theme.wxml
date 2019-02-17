@@ -2,9 +2,9 @@
 <import src="../template/product/products.wxml"/>
 <view class="container">
     <view class="theme-header">
-        <image src="http://localhost:7001{{themeArr[0].theme_url}}" mode="aspectFit"></image>
+        <image src="http://localhost:7001{{themeArr[0].theme_url}}"></image>
     </view>
     <view class="theme-main">
-      <template is="products" data="{{themeArr}}"></template>
+      <template is="products" data="{{productArr:themeArr[0].items}}"></template>
     </view>
 </view>
