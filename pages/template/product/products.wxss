@@ -20,17 +20,19 @@
   border-radius: 10rpx;
   position:relative;
   text-align:center;
+  align-content: center;
+  justify-content: center;
+
 
 }
 .products-item-bottom{
   text-align: center;
-  margin-bottom:20rpx;
   color: #333;
 }
 .products-item-bottom .name{
   font-size: 28rpx;
-  position:absolute;
-  bottom:40rpx;
+  position: absolute;
+  bottom: 40rpx;
   color:#ccc;
   
 }
@@ -38,6 +40,6 @@
   font-size: 24rpx;
   position:absolute;
   bottom:10rpx;
-  left:48%;
+  left:50%;
   color:#ccc;
 }
