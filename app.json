@@ -34,6 +34,7 @@
       "text":"我的",
       "iconPath":"imgs/toolbar/my.png",
       "selectedIconPath":"imgs/toolbar/my@selected.png"
-    }]
+    }],
+    "borderStyle":"white"
   }
 }
