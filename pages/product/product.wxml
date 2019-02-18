@@ -7,11 +7,11 @@
             </view>
         </view>
         <view class="detail-topic-img">
-                <image src=""></image>
+            <image src="http://localhost:7001{{productArr[0].product_url}}" mode="aspectFill"></image>
         </view>
         <view class="cart-box">
             <view class="product-counts">
-                <picker class="{{product.stock==0 ? 'disable':''}}" range="{{array}}" bindchange="bindPickerChange" value="{{index}}">
+                <picker class="{{productArr[0].count==0 ? 'disable':''}}" range="{{array}}" bindchange="bindPickerChange" value="{{index}}">
                     <view>
                         <text class="counts-tips">数量</text>
                         <text class="counts-data">{{array[index]}}</text>
@@ -20,16 +20,16 @@
                 </picker>
             </view>
             <view class="middle-border"></view>
-            <view class="add-cart-btn {{product.stock==0 ? 'disabled':''}}">
+            <view class="add-cart-btn {{productArr[0].count==0 ? 'disabled':''}}">
                <text>加入购物车</text>
                <image class="cart-icon" src="../../imgs/icon/cart.png"></image>
             </view>
         </view>
         <view class="basic-info-box">
-            <view class="stock" wx:if="{{product.stock > 0}}">有货</view>
+            <view class="stock" wx:if="{{productArr[0].count > 0}}">有货</view>
             <view class="stock no" wx:else>缺货</view>
-            <view class="name">{{product.name}}</view>
-            <view class="price">{{product.price}}</view>
+            <view class="name">{{productArr[0].name}}</view>
+            <view class="price">{{productArr[0].price}}</view>
         </view>
     </view>
 
@@ -41,12 +41,12 @@
         </view>
         <view class="product-detail-box">
            <view class="product-detail-imgs" hidden="{{currentTabsIndex!==0 }}">
-                <block wx:for="{{products.items}}" wx:key="{{index}}">
-                    <image src="{{item.product_url}}" mode="aspectFill"></image>
+                <block wx:for="{{productArr[0].items}}" wx:key="{{index}}">
+                    <image src="http://localhost:7001{{item.detail_url}}" mode="aspectFill"></image>
                 </block>
            </view>
            <view class="product-detail-properties" hidden="{{currentTabsIndex!==1}}">
-                <view>商品名称:{{product.name}}</view>
+                <view>商品名称:{{productArr[0].name}}</view>
                 <view></view>
                 <view></view>
                 <view></view>

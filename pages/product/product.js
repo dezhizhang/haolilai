@@ -12,20 +12,24 @@ Page({
     index:0,
     tabArr:[{name:"商品详情"},{name:"产品参数"},{name:'售后保障'}],
     currentTabsIndex:0,
+    productArr:[]
+
   },
   // 生命周期函数--监听页面加载
   onLoad: function (options) {
     let id = options.id;
 
     this.loadData(id);
-
-
-
   },
 
   loadData:function(id) {
     product.getDetailInfo(id,(res) => {
-      console.log(res);
+      if(res.code == 200 && res.success == true) {
+      
+        this.setData({
+          productArr:res.data
+        })
+      }
 
     });
 
