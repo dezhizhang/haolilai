@@ -9,6 +9,8 @@ class Cart {
     }
 
     add(item,counts) {
+         
+    
         let cartData = this.getCartDataFromLocal();
 
         let isHasInfo = this.isHasThatOne(item.id,cartData);
@@ -45,15 +47,12 @@ class Cart {
        for(let i=0;i<arr.length;i++){
            item = arr[i];
            if(item.id == id) {
-               result = {
-                   index:i,
-                   ...item
-               }
-            //    result = {
-            //        index:1,
-            //        data:item
-            //    }
-            //    break
+            
+                result = {
+                    index:1,
+                    data:item
+                }
+               break
            }
        }
        return result;

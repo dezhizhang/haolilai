@@ -1,7 +1,11 @@
 // pages/product/product.js
 import { Product } from 'product-model';
+import { Cart } from '../cart/cart-model';
+
 
 const product = new Product();
+const cart = new Cart();
+
 
 Page({
 
@@ -36,18 +40,45 @@ Page({
   },
 
   //选择器的设置
-  bindPickerChange:function(ev){
+  bindPickerChange:function(ev) {
+    console.log(ev.detail.value);
+
     this.setData({
       index:ev.detail.value
     })
   },
 
   //选项卡切换
-  onBindTapTabItem:function(ev){
+  onBindTapTabItem:function(ev) {
     let index = ev.currentTarget.dataset.index;
     this.setData({
       currentTabsIndex:index
     })
+
+  },
+  handleAddCart:function() {
+    let tempObj = {};
+
+    let keys = ['product_id','name','product_url','price'];
+    let data = this.data.productArr;
+
+   
+    data.map((item,index) => {
+     
+      if(item) {
+        tempObj = {
+          product_id:item.product_id,
+          name:item.product_id,
+          product_url:item.product_url,
+          price:item.price
+        }
+      }
+
+    });
+
+    let count = this.data.index;
+    
+    cart.add(tempObj,count);
 
   }
 

@@ -20,7 +20,7 @@
                 </picker>
             </view>
             <view class="middle-border"></view>
-            <view class="add-cart-btn {{productArr[0].count==0 ? 'disabled':''}}">
+            <view bindtap="handleAddCart" class="add-cart-btn {{productArr[0].count==0 ? 'disabled':''}}">
                <text>加入购物车</text>
                <image class="cart-icon" src="../../imgs/icon/cart.png"></image>
             </view>
