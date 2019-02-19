@@ -4,7 +4,7 @@
     <view class="category-box">
         <view class="left-box">
             <block wx:for="{{categoryArr}}" wx:key="{{index}}">
-                <view class="menu-item">{{item.name}}</view>
+                <view class="menu-item" data-id="{{item.category_id}}" bindtap="handelCategoryItem">{{item.name}}</view>
             </block>
         </view>
         <view class="right-box">

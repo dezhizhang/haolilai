@@ -29,13 +29,27 @@ Page({
     let id = 1;
     categofry.getCategoryProduct(id,(res) => {
       if(res.code == 200 && res.success == true) {
-     
-        console.log(res.data);
-        
+
         this.setData({
           categoryProductArr:res.data
         })
       }
+    })
+
+  },
+  handelCategoryItem:function(ev) {
+   
+    let id = ev.currentTarget.dataset.id;
+   
+    categofry.getCategoryProduct(id,(res) => {
+    
+
+      if(res.code == 200 && res.success == true) {
+        this.setData({
+          categoryProductArr:res.data
+        })
+      }
+
     })
 
   }
