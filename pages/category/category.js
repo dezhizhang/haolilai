@@ -8,7 +8,8 @@ Page({
 
   
   data: {
-    categoryArr:[]
+    categoryArr:[],
+    categoryProductArr:[]
   },
 
   onLoad: function (options) {
@@ -23,7 +24,20 @@ Page({
             categoryArr:res.data
           })
         }
+    });
+
+    let id = 1;
+    categofry.getCategoryProduct(id,(res) => {
+      if(res.code == 200 && res.success == true) {
+     
+        console.log(res.data);
+        
+        this.setData({
+          categoryProductArr:res.data
+        })
+      }
     })
+
   }
 
 })

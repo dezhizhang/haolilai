@@ -1,16 +1,16 @@
 <template name="categorydetail">
-  <view class="category-detail-box" hidden="{{!categoryInfo}}">
+  <view class="category-detail-box" hidden="{{!categoryProductArr}}">
     <view class="category-header">
-      <image src="{{categoryInfo.topImgUrl}}" mode="aspectFill"></image>
+      <image src="http://localhost:7001{{categoryProductArr[0].category_url}}" mode="aspectFill"></image>
     </view>
     <view class="category-title">
-      <text>{{categoryInfo.title}}</text>
+      <text>{{categoryProductArr[0].name}}</text>
     </view>
     <view class="category-main">
-      <block wx:for="{{categoryInfo.procucts}}">
+      <block wx:for="{{categoryProductArr[0].items}}" wx:key="{{index}}">
         <view class="category-goods-items {{index%3==1?'middle':''}}" data-id="{{item.id}}" bindtap="onProductsItemTap">
-          <image src="{{item.main_img_url}}" mode="aspectFill"></image>
-          <view>{{item.name}}</view>
+          <image src="http://localhost:7001{{item.category_product_url}}" mode="aspectFill"></image>
+          <view>{{item.discript}}</view>
         </view>
       </block>
     </view>

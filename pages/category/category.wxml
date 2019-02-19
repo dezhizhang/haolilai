@@ -1,4 +1,5 @@
 <!--pages/category/category.wxml-->
+<import src="../template/category/categorys.wxml"/>
 <view class="container category-container">
     <view class="category-box">
         <view class="left-box">
@@ -6,6 +7,10 @@
                 <view class="menu-item">{{item.name}}</view>
             </block>
         </view>
-        <view class="right-box"></view>
+        <view class="right-box">
+            <view class="foods-type-box">
+                <template is="categorydetail" data="{{categoryProductArr}}"></template>
+            </view>
+        </view>
     </view>
 </view>
