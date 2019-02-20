@@ -9,6 +9,23 @@
                             <image class="" wx:if="{{item.selectStatus}}" src="../../imgs/icon/circle@selected.png"/>
                             <image wx:else src="../../imgs/icon/circle@noselected.png"/>
                         </view>
+                        <view class="cart-item-img">
+                            <image class="good-image" src="http://localhost:7001{{item.product_url}}"/>
+                        </view>
+                        <view class="cart-item-word">
+                            <view class="title-box">
+                                <text class="title">{{item.name}}</text>
+                                <text class="">￥{{item.price}}</text>
+                            </view>
+                            <view class="bottom-box">
+                                <view class="cart-item-counts">
+                                    <view class="btns">-</view>
+                                    <view class="counts">{{item.counts}}</view>
+                                    <view class="btns">+</view>
+                                </view>
+                                <view class="delete">x</view>
+                            </view>
+                        </view>
                     </view>
                 </view>
             </block>
