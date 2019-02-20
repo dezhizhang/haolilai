@@ -58,11 +58,8 @@ Page({
   },
   handleAddCart:function() {
     let tempObj = {};
-
-    let keys = ['product_id','name','product_url','price'];
     let data = this.data.productArr;
 
-   
     data.map((item,index) => {
      
       if(item) {
@@ -79,6 +76,12 @@ Page({
     let counts =parseInt(this.data.index) + 1;
    
     cart.add(tempObj,counts);
+
+    this.setData({
+      cartTotalCounts:cart.getCartTotalCounts(),
+    })
+  
+
 
   }
 
