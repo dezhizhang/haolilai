@@ -29,33 +29,34 @@ Page({
     let totalPrice = this.totalAccountAndCounts(cartData);
     
     this.setData({
-      selectedCounts:countsInfo,
+      selectedCounts:totalPrice.selectedCounts,
+      slectedTypeCounts:totalPrice.slectedTypeCounts,
+      account:totalPrice.account,
       cartData:cartData,
-      totalPrice:totalPrice
+      totalPrice:totalPrice,
+     
     })
-
-
 
   },
 
   //计算订单的所有金额
   totalAccountAndCounts:function(data) {
       let account = 0; //所算所有总算价格
-      let selectCounts = 0  //购买商品的总个数
+      let selectedCounts = 0  //购买商品的总个数
       let slectedTypeCounts = 0;   //购买商品的总类
 
       let multiple = 100;
       data.map((item,index) => {
         if(item.selectStatus) {
           account += item.counts * multiple * Number(item.price) * multiple;
-          selectCounts += item.counts;
+          selectedCounts += item.counts;
           slectedTypeCounts++
         }
       })
 
       return {
         account:account / (multiple * multiple),
-        selectCounts,
+        selectedCounts,
         slectedTypeCounts
       }
   }
