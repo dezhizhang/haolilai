@@ -41,8 +41,7 @@ Page({
 
   //选择器的设置
   bindPickerChange:function(ev) {
-    console.log(ev.detail.value);
-
+  
     this.setData({
       index:ev.detail.value
     })
@@ -76,8 +75,8 @@ Page({
 
     });
 
-    let count = this.data.index;
-    
+    let count =parseInt(this.data.index) + 1;
+   
     cart.add(tempObj,count);
 
   }

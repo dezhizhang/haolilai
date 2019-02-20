@@ -47,7 +47,6 @@ class Cart {
        for(let i=0;i<arr.length;i++){
            item = arr[i];
            if(item.id == id) {
-            
                 result = {
                     index:1,
                     data:item
