@@ -65,12 +65,13 @@ Page({
   toggleSelect:function(ev) {
      
     let dataset = ev.currentTarget.dataset;
-    let index = dataset.index;
+    
+    let id = dataset.id;
     let status = dataset.status;
-
- 
-
-
+    let index = this.getProductIndexById(id);
+    this.data.cartData[index].selectStatus = !status;
+    this.resetCartData();
+    
 
 
   },
@@ -79,7 +80,34 @@ Page({
   toggleSelectAll:function(ev) {
     console.log(ev);
 
+  },
+
+  //获取商品id 商品所在下标
+  getProductIndexById:function(id) {
+
+    let data = this.data.cartData;
+    let len = data.length;
+
+    for(let i=0;i<len;i++) {
+      if(data[i].product_id == id) {
+        return i
+      }
+    }
+  },
+
+  //重新计算商品的价格
+  resetCartData:function() {
+    let newData = this.totalAccountAndCounts(this.data.cartData);
+
+    this.setData({
+      account:newData.account,
+      selectedCounts:newData.selectedCounts,
+      slectedTypeCounts:newData.slectedTypeCounts,
+      cartData:this.data.cartData
+    })
+
   }
+
 
  
 })
