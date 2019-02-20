@@ -9,8 +9,7 @@ class Cart {
     }
 
     add(item,counts) {
-         
-    
+      
         let cartData = this.getCartDataFromLocal();
 
         let isHasInfo = this.isHasThatOne(item.id,cartData);
@@ -21,8 +20,9 @@ class Cart {
             cartData.push(item);
 
         } else {
+        
             cartData[isHasInfo.index].counts += counts;
-
+           
         }
 
         wx.setStorageSync(this.storageKeyName,cartData);
@@ -31,13 +31,27 @@ class Cart {
     }
 
     getCartDataFromLocal() {
-        let res = wx.getStorageSync();
+        let res = wx.getStorageSync(this.storageKeyName);
         if(!res) {
             res = [];
 
         }
             return res;
             
+    }
+
+    //获取缓存中的商品数量
+    getCartTotalCounts() {
+        let data = this.getCartDataFromLocal();
+        let counts = 0;
+        data.map((item,index) => {
+            counts += item.counts;
+
+        })
+
+        return counts;
+
+
     }
 
     isHasThatOne(id,arr) {
@@ -48,7 +62,7 @@ class Cart {
            item = arr[i];
            if(item.id == id) {
                 result = {
-                    index:1,
+                    index:i,
                     data:item
                 }
                break

@@ -9,7 +9,6 @@ const cart = new Cart();
 
 Page({
 
-  
   // 页面的初始数据
   data: {
     array: [1, 2, 3, 4,5,6,7,8,9,10],
@@ -31,12 +30,14 @@ Page({
       if(res.code == 200 && res.success == true) {
       
         this.setData({
-          productArr:res.data
+          productArr:res.data,
+          cartTotalCounts:cart.getCartTotalCounts(),
         })
       }
 
     });
 
+  
   },
 
   //选择器的设置
@@ -75,9 +76,9 @@ Page({
 
     });
 
-    let count =parseInt(this.data.index) + 1;
+    let counts =parseInt(this.data.index) + 1;
    
-    cart.add(tempObj,count);
+    cart.add(tempObj,counts);
 
   }
 
