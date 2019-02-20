@@ -59,13 +59,15 @@ Page({
   handleAddCart:function() {
     let tempObj = {};
     let data = this.data.productArr;
+    console.log(data);
+    
 
     data.map((item,index) => {
      
       if(item) {
         tempObj = {
           product_id:item.product_id,
-          name:item.product_id,
+          name:item.name,
           product_url:item.product_url,
           price:item.price
         }

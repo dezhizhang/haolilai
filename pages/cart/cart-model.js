@@ -30,6 +30,7 @@ class Cart {
 
     }
 
+    //获取缓存数据
     getCartDataFromLocal() {
         let res = wx.getStorageSync(this.storageKeyName);
         if(!res) {
@@ -41,12 +42,16 @@ class Cart {
     }
 
     //获取缓存中的商品数量
-    getCartTotalCounts() {
+    getCartTotalCounts(flag) {
         let data = this.getCartDataFromLocal();
         let counts = 0;
         data.map((item,index) => {
-            counts += item.counts;
-
+            if(item.selectStatus == flag) {
+                counts += item.counts;
+            } else {
+                counts += item.counts;
+            }
+           
         })
 
         return counts;
