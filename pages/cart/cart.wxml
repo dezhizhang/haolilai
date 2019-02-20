@@ -5,7 +5,7 @@
             <block wx:for="{{cartData}}" wx:key="{{index}}">
                 <view class="cart-item">
                     <view class="cart-item-main">
-                        <view class="cart-item-checkbox">
+                        <view class="cart-item-checkbox" bindtap="toggleSelect" data-index="{{index}}" data-id="{{item.id}}" data-status="{{item.selectStatus}}">
                             <image class="" wx:if="{{item.selectStatus}}" src="../../imgs/icon/circle@selected.png"/>
                             <image wx:else src="../../imgs/icon/circle@noselected.png"/>
                         </view>
@@ -31,7 +31,7 @@
             </block>
         </view>
         <view class="footer-account-box all-accounts-box">
-             <view class="all-select" ontap="toggleSelectAll" data-status="{{selectedTypeCounts==cartData.length?'true':'false'}}">
+             <view class="all-select" bindtap="toggleSelectAll" data-status="{{selectedTypeCounts==cartData.length?'true':'false'}}">
                 <image wx:if="{{selectedTypeCounts==cartData.length}}"
                        class="title-icon" src="../../imgs/icon/all@selected.png"></image>
                 <image wx:else class="title-icon" src="../../imgs/icon/all.png"></image>

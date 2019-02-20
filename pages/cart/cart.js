@@ -59,6 +59,26 @@ Page({
         selectedCounts,
         slectedTypeCounts
       }
+  },
+
+  //改变复选框的状态
+  toggleSelect:function(ev) {
+     
+    let dataset = ev.currentTarget.dataset;
+    let index = dataset.index;
+    let status = dataset.status;
+
+ 
+
+
+
+
+  },
+
+  //用户全选时
+  toggleSelectAll:function(ev) {
+    console.log(ev);
+
   }
 
  
