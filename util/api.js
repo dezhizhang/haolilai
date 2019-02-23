@@ -1,6 +1,8 @@
  
 
 import { Config } from './config';
+import { Token } from './token';
+
 
 class Api {
     constructor() {
@@ -8,6 +10,7 @@ class Api {
     }
 
     request(params) {
+        let that = this;
 
         wx.request({
             url:Config.baseURL+params.url,
@@ -18,14 +21,35 @@ class Api {
               'token':wx.getStorageSync('token')
             },
             success:function(res) {
+              let code = res.statusCode.toString();
+              let startChar = code.charAt(0);
 
-              params.callback &&  params.callback(res.data)
+              if(startChar =='2') {
+                params.callback &&  params.callback(res.data)
+              } else{
+                if(code == '401') {
+                  that.refetch(params)
+                }
+                params.eCallback && params.eCallback(res.data)
+              }
+
+            
             
             },
             fail:function(err) {
 
             }
         })
+    }
+
+    //重新向服务器发起数据
+    refetch(params) {
+      let token = new Token();
+      token.getTokenFromServer((token) => {
+        this.request(params);
+
+      })
+
     }
 }
 
