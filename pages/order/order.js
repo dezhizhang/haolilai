@@ -1,4 +1,7 @@
 // pages/order/order.js
+import { Cart } from '../cart/cart-model';
+const cart = new Cart();
+
 Page({
 
 
@@ -16,13 +19,16 @@ Page({
 
   //加载页面数据
   loadData:function(data) {
-    let productArr = [];
-
+    let productArr = cart.getCartDataFromLocal(true);
+    console.log(productArr);
+    
     this.setData({
-      account:data.account
+      account:data.account,
+      productArr:productArr,
+      orderStatus:0
     })
   },
-  
+
 
   
   // 生命周期函数--监听页面初次渲染完成
