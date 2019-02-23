@@ -1,3 +1,8 @@
+
+import { Api } from './api';
+const api = new Api();
+
+
 class Address {
   constructor() {
     
@@ -23,12 +28,37 @@ class Address {
 
 
   }
-
+   
+  //栓测是否是直峡市
   isCenterCity(name) {
       let centerCitys = ['北京市','天津市','上海市','重庆市'];
       let flag = centerCitys.indexOf(name) >= 0;
       return flag;
 
+  }
+
+  //保存用户收货地址
+  submitAddress(data,callback) {
+    data = this.setUpAddress(data);
+    let params = {
+      url:'api/user/address',
+      type:'POST',
+      data:data
+    }
+    api.request(params);
+
+  }
+  //修改地址
+  setUpAddress(res) {
+    let formData = {
+      name:res.userName,
+      province:res.provinceName,
+      city:res.cityName,
+      country:res.countyName,
+      mobile:res.telNumber,
+      detail:res.detailInfo
+    }
+    return formData
   }
 }
 

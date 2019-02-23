@@ -45,8 +45,13 @@ Page({
 
             }
 
-            that.bindAddressInfo(addressInfo)
+            that.bindAddressInfo(addressInfo);
+            address.submitAddress(res,(flag) => {
+              if(!flag) {
+                that.showTips('操作提示','地址信息更新失败',flag);
 
+              }
+            });
         }
       })
   },
@@ -57,6 +62,23 @@ Page({
         addressInfo:addressInfo
       })
   },
+
+  //消息提示
+  showTips:function(title,content,flag) {
+    wx.showModel({
+      title:title,
+      content:content,
+      showCancel:false,
+      success:function(res) {
+        if(flag) {
+          wx.switchTab({
+            url:'/pages/my/my'
+          }) 
+        }
+      }
+    })
+  },
+
 
 
   // 生命周期函数--监听页面初次渲染完成
