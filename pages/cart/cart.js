@@ -71,7 +71,7 @@ Page({
     let index = this.getProductIndexById(id);
     this.data.cartData[index].selectStatus = !status;
     this.resetCartData();
-    
+
 
 
   },
@@ -106,8 +106,11 @@ Page({
       cartData:this.data.cartData
     })
 
+  },
+  //用户提交下单
+  submitOrder:function(ev) {
+    wx.navigateTo({
+      url:'../order/order?account='
+    })
   }
-
-
- 
 })
