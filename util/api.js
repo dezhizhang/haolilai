@@ -9,7 +9,7 @@ class Api {
 
     }
 
-    request(params) {
+    request(params,noRefetch) {
         let that = this;
 
         wx.request({
@@ -28,7 +28,11 @@ class Api {
                 params.callback &&  params.callback(res.data)
               } else{
                 if(code == '401') {
-                  that.refetch(params)
+
+                  if(!noRefetch) {
+                    that.refetch(params)
+                  }
+                  
                 }
                 params.eCallback && params.eCallback(res.data)
               }
@@ -46,7 +50,7 @@ class Api {
     refetch(params) {
       let token = new Token();
       token.getTokenFromServer((token) => {
-        this.request(params);
+        this.request(params,true);
 
       })
 
