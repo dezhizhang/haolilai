@@ -1,5 +1,6 @@
  
-const baseUrl = 'http://localhost:7001';
+
+import { Config } from './config';
 
 class Api {
     constructor() {
@@ -9,7 +10,7 @@ class Api {
     request(params) {
 
         wx.request({
-            url:baseUrl+params.url,
+            url:Config.baseURL+params.url,
             method:params.type || 'GET',
             data:params.data,
             header:{
