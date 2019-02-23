@@ -31,13 +31,25 @@ class Cart {
     }
 
     //获取缓存数据
-    getCartDataFromLocal() {
+    getCartDataFromLocal(flag) {
         let res = wx.getStorageSync(this.storageKeyName);
         if(!res) {
             res = [];
 
         }
-            return res;
+
+        if(flag) {
+            let newRes = [];
+            for(let i=0;i<res.length;i++) {
+                if(res[i].selectStatus) {
+                    newRes.push(res[i])
+                }
+            }
+            res = newRes;
+            
+        }
+
+        return res;
             
     }
 

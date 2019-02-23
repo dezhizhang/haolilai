@@ -110,7 +110,7 @@ Page({
   //用户提交下单
   submitOrder:function(ev) {
     wx.navigateTo({
-      url:'../order/order?account='
+      url:'../order/order?account=' + this.data.account + '&form=cart'
     })
   }
 })
