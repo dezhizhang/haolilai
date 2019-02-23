@@ -1,16 +1,20 @@
 // pages/order/order.js
 import { Cart } from '../cart/cart-model';
 import { Address } from '../../util/address';
+import { Order } from './order-model';
+
 
 const cart = new Cart();
 const address = new Address();
+const order = new Order();
+
 
 
 Page({
 
 
   data: {
-
+    data:-1
   },
 
   
@@ -80,11 +84,62 @@ Page({
   },
 
 
+  //用户支付
+  userPay:function() {
+      if(!this.data.addressInfo) {
+        this.showTips('下单提示','请填写您的收货地址');
+        return;
+
+      }
+
+      if(this.data.orderStatus == 0) {
+        this.firstTimePay();
+
+      } else {
+        this.oneMoresTimePay();
+
+      }
+
+  },
 
   // 生命周期函数--监听页面初次渲染完成
   onReady: function () {
 
   },
+
+  firstTimePay:function() {
+     let orderInfo = [];
+     let productInfo = this.data.productArr;
+     let order = new Order();
+
+     for(let i=0;i<productInfo.length;i++) {
+       orderInfo.push({
+          product_id:productInfo[i].id,
+          count:productInfo[i].count
+       })
+     }
+
+     let that = this;
+     order.doOrder(orderInfo,(data) => {
+       if(data.pass) {
+         let id = data.order_id;
+         that.data.id = id;
+        //  that.data.formCartFlag = false;
+         
+         //开始支付
+         that.execPay(id);
+
+       } else {
+         that.orderFail(data);
+
+       }
+     })
+
+  },
+
+
+
+
 
   
   //生命周期函数--监听页面显示
