@@ -10,22 +10,21 @@ class Order {
     }
 
     doOrder(param,callback) {
+    
         let that = this;
         let allParams = {
-            url:'/api/order',
+            url:'/api/order/pay',
             type:'POST',
             data:{ products:param },
             sCallback:function(data) {
                 that.execSetStorageSync(true);
-                callback && callback(data);
-
+                callback && callback(data)
             },
+
             eCallback:function() {
 
             }
-
         
-
         }
 
         api.request(allParams);

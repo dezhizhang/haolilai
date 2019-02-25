@@ -69,7 +69,7 @@ Page({
 
   //消息提示
   showTips:function(title,content,flag) {
-    wx.showModel({
+    wx.showModal({
       title:title,
       content:content,
       showCancel:false,
@@ -112,15 +112,19 @@ Page({
      let productInfo = this.data.productArr;
      let order = new Order();
 
+    
      for(let i=0;i<productInfo.length;i++) {
        orderInfo.push({
-          product_id:productInfo[i].id,
-          count:productInfo[i].count
+          product_id:productInfo[i].product_id,
+          count:productInfo[i].counts
        })
      }
 
      let that = this;
+
      order.doOrder(orderInfo,(data) => {
+      
+
        if(data.pass) {
          let id = data.order_id;
          that.data.id = id;
@@ -137,11 +141,6 @@ Page({
 
   },
 
-
-
-
-
-  
   //生命周期函数--监听页面显示
   onShow: function () {
 
