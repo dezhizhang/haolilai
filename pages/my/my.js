@@ -58,7 +58,9 @@ Page({
       if(res.code ==200 && res.success == true) {
 
         if(res.data.length > 0) {
-          this.data.orderArr.push(res.data);
+
+          this.data.orderArr.push.apply(this.data.orderArr,res.data);
+
           this.setData({
             orderArr:this.data.orderArr
           })
@@ -74,6 +76,7 @@ Page({
     })
   },
   onReachBottom:function() {
+  
     if(!this.data.isloadedAll) {
      let pageIndex =  this.data.pageIndex ++;
       this.setData({
