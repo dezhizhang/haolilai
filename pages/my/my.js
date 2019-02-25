@@ -16,7 +16,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    pageIndex:1
+    pageIndex:1,
+    orderArr:[],
+    isloadedAll:false
   },
 
   /**
@@ -54,12 +56,32 @@ Page({
   getOrderInfo:function() {
     order.getOrders(this.data.pageIndex,(res) => {
       if(res.code ==200 && res.success == true) {
-         this.setData({
-           orderArr:res.data
-         })
+
+        if(res.data.length > 0) {
+          this.data.orderArr.push(res.data);
+          this.setData({
+            orderArr:this.data.orderArr
+          })
+
+        } else {
+           this.setData({
+             isloadedAll:true
+           })
+        }
+        
       }
 
     })
+  },
+  onReachBottom:function() {
+    if(!this.data.isloadedAll) {
+     let pageIndex =  this.data.pageIndex ++;
+      this.setData({
+        pageIndex:pageIndex
+      })
+      order.getOrders()
+
+    }
   }
 
 
