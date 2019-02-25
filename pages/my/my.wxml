@@ -4,4 +4,6 @@
         <image src="{{userInfo.avatarUrl}}" />
         <text class="name">{{userInfo.nickName}}</text>
     </view>
+
+    <view class=""></view>
 </view>

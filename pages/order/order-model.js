@@ -35,6 +35,19 @@ class Order {
        wx.setStorageSync(this.storageKeyName,data)
     }
 
+    //获取用户订单
+    getOrders(pageIndex,callback) {
+        let params = {
+            url:'/api/user/order',
+            data:{page:pageIndex},
+            type:'GET',
+            callback
+        }
+
+        api.request(params);
+
+    }
+
 }
 
 export { Order };

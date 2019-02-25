@@ -1,9 +1,13 @@
 // pages/my/my.js
 import { My } from './my-model';
 import { Address } from '../../util/address';
+import { Order } from '../order/order-model';
+
 
 const my = new My();
 const address = new Address();
+const order = new Order();
+
 
 
 Page({
@@ -12,7 +16,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    pageIndex:1
   },
 
   /**
@@ -21,6 +25,8 @@ Page({
   onLoad: function (options) {
       this.loadData();
       this.getAddressInfo();
+      this.getOrderInfo();
+
 
 
   },
@@ -37,11 +43,25 @@ Page({
   //获取用户地址
   getAddressInfo:function() {
     address.getAddressInfo((res) => {
-      console.log(res);
-      
+      if(res.code == 200 && res.success ==true) {
+
+      }
     });
 
+  },
+
+  //获取订单信息
+  getOrderInfo:function() {
+    order.getOrders(this.data.pageIndex,(res) => {
+      if(res.code ==200 && res.success == true) {
+         this.setData({
+           orderArr:res.data
+         })
+      }
+
+    })
   }
+
 
   
 })
