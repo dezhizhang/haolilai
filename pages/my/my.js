@@ -44,11 +44,14 @@ Page({
 
   //获取用户地址
   getAddressInfo:function() {
-    address.getAddressInfo((res) => {
-      if(res.code == 200 && res.success ==true) {
+    let user_id = '123456';
+  
+    my.getAddressInfo(user_id,(res) => {
+       console.log(res);
 
-      }
-    });
+    })
+
+    
 
   },
 

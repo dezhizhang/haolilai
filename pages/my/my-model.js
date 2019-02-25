@@ -1,4 +1,6 @@
 import { Api } from '../../util/api';
+const api = new Api();
+
 
 class My {
     constructor() {
@@ -24,6 +26,25 @@ class My {
             }
         })
     }
+
+    //获取用户地址
+    getAddressInfo(user_id,callback) {
+        console.log(user_id);
+        
+        let params = {
+            url:'/api/user/address?user_id='+ user_id,
+            type:'get',
+            data:{ },
+            callback
+           
+        
+        }
+
+        api.request(params);
+
+    }
+
+
 }
 
 export { My }
