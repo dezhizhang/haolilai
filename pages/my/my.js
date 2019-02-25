@@ -1,6 +1,10 @@
 // pages/my/my.js
 import { My } from './my-model';
+import { Address } from '../../util/address';
+
 const my = new My();
+const address = new Address();
+
 
 Page({
 
@@ -16,6 +20,8 @@ Page({
    */
   onLoad: function (options) {
       this.loadData();
+      this.getAddressInfo();
+
 
   },
 
@@ -26,6 +32,15 @@ Page({
           userInfo:data
         })
      })
+  },
+
+  //获取用户地址
+  getAddressInfo:function() {
+    address.getAddressInfo((res) => {
+      console.log(res);
+      
+    });
+
   }
 
   

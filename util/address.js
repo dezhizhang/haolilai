@@ -28,6 +28,23 @@ class Address {
 
 
   }
+
+  //获取用户收货地址
+  getAddressInfo(callback) {
+    let that = this;
+    let params = {
+       url:'api/user/address',
+       sCallback:function(res) {
+         if(res) {
+            res.totalDetail = that.setAddressInfo(res);
+            callback && callback(res);
+
+         }
+       }
+    }
+    api.request(params);
+
+  }
    
   //栓测是否是直峡市
   isCenterCity(name) {
